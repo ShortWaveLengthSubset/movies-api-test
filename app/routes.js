@@ -26,6 +26,7 @@ router.get('/', function(req, res) {
 	res.json({ message: 'hooray! welcome to our api!'});
 });
 
+
 // more routes for our API will happen here
 
 // on routes that end in /movie
@@ -103,6 +104,7 @@ router.route('/movies/:movie_id')
 
 	});
 
-// REGISTER OUR ROUTES -------------------------------------------------------
-// all of our routes will be prefixed with /api
-app.use('/api', router);
+
+
+
+module.exports = router;      // somehow connects back to server.js (??)
