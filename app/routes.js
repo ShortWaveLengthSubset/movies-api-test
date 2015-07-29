@@ -1,10 +1,5 @@
-// server.js
-
-// BASE SETUP
-// ===========================================================================
-
-// call the packages we need
-var express			= require('express'),			// call express
+var Movie 			= require('./models/movie');
+var express 		= require('express'),
 	app				= express(),					// define our app using express
 	bodyParser		= require('body-parser');
 
@@ -13,27 +8,11 @@ var express			= require('express'),			// call express
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 
-var port 			= process.env.PORT || 8080;		// set our port
-
-var mongoose 		= require('mongoose');
-mongoose.connect('mongodb://moviesuser:moviespassword@ds031632.mongolab.com:31632/movies-api-test'); // connect to our database
-
-// routes
-// var router = express.Router();						// get an instance of the express Router
-var routes = require('./app/routes');
-
-app.use('/', routes);
-// require('./app/routes');
-// require('./routes.js');
-
-/*
-var Movie 			= require('./app/models/movie');
-
 // ROUTES FOR OUR API
 // ===========================================================================
-
-
 var router = express.Router();						// get an instance of the express Router
+
+
 
 // middleware to use for all requests
 router.use(function(req, res, next) {
@@ -127,8 +106,3 @@ router.route('/movies/:movie_id')
 // REGISTER OUR ROUTES -------------------------------------------------------
 // all of our routes will be prefixed with /api
 app.use('/api', router);
-*/
-// START THE SERVER
-// ===========================================================================
-app.listen(port);
-console.log('Magic happens on port ' + port);
